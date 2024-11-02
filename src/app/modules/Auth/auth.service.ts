@@ -199,7 +199,6 @@ const forgetPassword = async (userId: string) => {
     config.JWT_ACCESS_SECRET as string,
     '10m',
   );
-  console.log(accessToken);
   const resetUILink = `${config.RESET_PASSWORD_URI}?id=${user.id}&token=${accessToken}`;
   await sendEmail(user.email, resetUILink);
 };

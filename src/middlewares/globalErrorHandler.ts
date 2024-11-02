@@ -27,6 +27,7 @@ export const globalErrorHandler: ErrorRequestHandler = (
   err,
   req,
   res,
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   next,
 ) => {
   // setting default values

@@ -99,6 +99,9 @@ const updateSemesterRegistrationIntoDB = async (
       `Can not directly change from ${currentSemesterStatus} to ${requestedStatus}`,
     );
   }
+
+  const result = await SemesterRegistrationModel.findByIdAndUpdate(id,payload);
+  return result;
 };
 
 const getAllSemesterRegistrationsFromDB = async (

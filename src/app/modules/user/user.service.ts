@@ -21,6 +21,7 @@ import { sendImageToCloudinary } from '../../../utils/sendImageToCloudinary';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createStudentIntoDb = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   file: any,
   password: string,
   payload: TStudent,
@@ -105,6 +106,7 @@ const createStudentIntoDb = async (
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createFacultyIntoDB = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   file: any,
   password: string,
   payload: TFaculty,
@@ -122,6 +124,7 @@ const createFacultyIntoDB = async (
   if (!academicDepartment) {
     throw new AppError(httpStatus.NOT_FOUND, 'Academic department not found');
   }
+  payload.academicFaculty = academicDepartment.academicFaculty; // add faculty to payload
 
   const session = await mongoose.startSession();
   try {
@@ -168,6 +171,7 @@ const createFacultyIntoDB = async (
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createAdminIntoDB = async (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   file: any,
   password: string,
   payload: TAdmin,

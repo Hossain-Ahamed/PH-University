@@ -6,13 +6,29 @@ import { auth } from '../../../middlewares/auth';
 import { USER_ROLE } from '../user/user.constant';
 
 const router = express.Router();
-router.get('/', AcademicSemsterControllers.getAllAcademicSemesters);
+router.get(
+  '/',
+  auth(
+    USER_ROLE.admin,
+    USER_ROLE.superAdmin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
+  ),
+  AcademicSemsterControllers.getAllAcademicSemesters,
+);
 router.get(
   '/:semesterId',
+  auth(
+    USER_ROLE.admin,
+    USER_ROLE.superAdmin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
+  ),
   AcademicSemsterControllers.getSingleAcademicSemester,
 );
 router.patch(
   '/:semesterId',
+  auth(USER_ROLE.admin, USER_ROLE.superAdmin),
   validateRequest(
     AcademicSemesterValidations.updateAcademicSemesterValidationSchema,
   ),
