@@ -100,7 +100,7 @@ const updateSemesterRegistrationIntoDB = async (
     );
   }
 
-  const result = await SemesterRegistrationModel.findByIdAndUpdate(id,payload);
+  const result = await SemesterRegistrationModel.findByIdAndUpdate(id, payload);
   return result;
 };
 
