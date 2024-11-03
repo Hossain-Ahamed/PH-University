@@ -9,7 +9,8 @@ const getAllFaculty = catchAsync(async (req, res) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Faculty data found successfully',
-    data: result,
+    meta: result.meta,
+    data: result.result,
   });
 });
 

@@ -9,7 +9,7 @@ import AppError from './../../errors/AppError';
 
 const getAllFacultiesFromDB = async (query: Record<string, unknown>) => {
   const facultyQuery = new QueryBuilder(
-    FacultyModel.find().populate('academicDepartment'),
+    FacultyModel.find().populate('academicDepartment academicFaculty'),
     query,
   )
     .search(FacultySearchableFields)
